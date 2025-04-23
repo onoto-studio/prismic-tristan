@@ -7,14 +7,6 @@ import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
 
 import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
-
-import localFont from 'next/font/local'
- 
-// Font files can be colocated inside of app
-const myFont = localFont({
-  src: './Satoshi-Variable.ttf',
-  display: 'swap',
-})
  
 export default function RootLayout({
   children,
