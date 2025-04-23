@@ -7,8 +7,8 @@ import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
 import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
 
-const satoshi = localFont({
-  src: './Satoshi-Variable.ttf',
+const switzer = localFont({
+  src: './Switzer-Variable.ttf',
   display: 'swap',
 });
 
@@ -16,7 +16,7 @@ export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={satoshi.className}>
+    <html lang="en" className={switzer.className}>
       <body className="overflow-x-hidden antialiased">
         <Header />
         {children}
