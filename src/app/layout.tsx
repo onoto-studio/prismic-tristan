@@ -36,7 +36,7 @@ async function Header() {
       <div className="grid grid-cols-4 md:grid-cols-9 gap-4 px-4 py-4">
   {/* Colonne 1 : Titre du site à gauche sur desktop, reste à gauche sur mobile */}
   <div className="col-span-1 flex items-center justify-start">
-    <PrismicNextLink href="/" className="text-xl font-semibold tracking-tight">
+    <PrismicNextLink href="/" className="text-xl tracking-tight">
       <PrismicText field={settings.data.siteTitle} />
     </PrismicNextLink>
   </div>
