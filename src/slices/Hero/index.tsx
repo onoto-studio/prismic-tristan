@@ -33,7 +33,23 @@ const Hero: FC<HeroProps> = ({ slice }) => {
                 className="w-full h-auto object-cover rounded-lg"
               />
             </div>
-          )}
+          )} 
+          {/* Texte dans les 3 dernières colonnes */}
+          <div className="col-span-3 flex flex-col justify-center space-y-6">
+            <div>
+              <PrismicRichText
+                field={slice.primary.text}
+                components={components}
+              />
+            </div>
+            {isFilled.link(slice.primary.buttonLink) && (
+              <PrismicNextLink
+                field={slice.primary.buttonLink}
+                className="inline-block rounded-sm bg-white px-5 py-3 font-medium text-slate-800"
+              >
+                {slice.primary.buttonText || "Learn More"}
+              </PrismicNextLink>
+            )}
           </div>
         </div>
       </Bounded>
