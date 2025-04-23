@@ -21,9 +21,9 @@ const Hero: FC<HeroProps> = ({ slice }) => {
   const backgroundImage = slice.primary.backgroundImage;
 
   return (
-    <section className="bg-white min-h-[85vh] pr-3 text-slate-900">
+    <section className="bg-white min-h-[85vh] text-slate-900">
       <Bounded yPadding="lg">
-        <div className="grid grid-cols-9 gap-4 items-center">
+        <div className="grid grid-cols-9 gap-4 items-center  pr-6">
           {/* Image dans les 6 premières colonnes */}
           {isFilled.image(backgroundImage) && (
             <div className="col-span-6">
