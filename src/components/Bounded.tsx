@@ -20,15 +20,14 @@ export function Bounded({
     <Comp
       data-collapsible={collapsible}
       className={clsx(
-  "px-2", // Réduire l'espace horizontal dans Bounded
-  yPadding === "sm" && "py-8 md:py-10",
-  yPadding === "base" && "py-20 md:py-28",
-  yPadding === "lg" && "py-32 md:py-48",
-  className,
-    )}
-      
+        "px-0", // Pas de padding horizontal
+        yPadding === "sm" && "py-4 md:py-6", // Marge verticale
+        yPadding === "base" && "py-6 md:py-8", // Marge verticale
+        yPadding === "lg" && "py-8 md:py-12", // Marge verticale
+        className,
+      )}
     >
-      <div className="mx-auto w-full max-w-6xl">{children}</div>
+      <div className="mx-0 w-full">{children}</div> {/* Réduit la largeur max */}
     </Comp>
   );
 }
