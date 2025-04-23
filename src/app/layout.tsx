@@ -1,36 +1,23 @@
 import "./globals.css";
-
-import { Inter } from "next/font/google";
+import localFont from 'next/font/local';
 import { asText } from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
 import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
 
 import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
- 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en" className={myFont.className}>
-      <body>{children}</body>
-    </html>
-  )
-}
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
+// Charger la police Satoshi
+const satoshi = localFont({
+  src: './fonts/Satoshi-Variable.ttf', // adapte ce chemin si nécessaire
+  display: 'swap',
 });
 
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={satoshi.className}>
       <body className="overflow-x-hidden antialiased">
         <Header />
         {children}
