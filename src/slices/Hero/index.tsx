@@ -30,26 +30,34 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           className="pointer-events-none select-none object-cover opacity-40"
         />
       )}
+
       <Bounded yPadding="lg" className="relative">
-        <div className="grid justify-items-center gap-8">
-          <div className="max-w-2xl text-center">
-            <PrismicRichText
-              field={slice.primary.text}
-              components={components}
-            />
+        <div className="grid grid-cols-9 gap-4">
+          {/* Colspan 6 pour la partie vide à gauche (laisse l'image visible en fond) */}
+          <div className="col-span-6" />
+
+          {/* Colspan 3 pour le contenu textuel à droite */}
+          <div className="col-span-3 flex flex-col items-start justify-center space-y-6 text-left">
+            <div>
+              <PrismicRichText
+                field={slice.primary.text}
+                components={components}
+              />
+            </div>
+            {isFilled.link(slice.primary.buttonLink) && (
+              <PrismicNextLink
+                field={slice.primary.buttonLink}
+                className="inline-block rounded-sm bg-white px-5 py-3 font-medium text-slate-800"
+              >
+                {slice.primary.buttonText || "Learn More"}
+              </PrismicNextLink>
+            )}
           </div>
-          {isFilled.link(slice.primary.buttonLink) && (
-            <PrismicNextLink
-              field={slice.primary.buttonLink}
-              className="rounded-sm bg-white px-5 py-3 font-medium text-slate-800"
-            >
-              {slice.primary.buttonText || "Learn More"}
-            </PrismicNextLink>
-          )}
         </div>
       </Bounded>
     </section>
   );
 };
+
 
 export default Hero;
