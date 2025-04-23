@@ -33,7 +33,7 @@ async function Header() {
 
   return (
     <Bounded as="header" yPadding="sm">
-      <div className="grid grid-cols-9 gap-4 px-4 py-4">
+      <div className="grid grid-cols-9 gap-4 px-4 py-4 sm:grid-cols-4">
         {/* Première colonne : le nom */}
         <div className="col-span-1 flex items-center justify-start">
           <PrismicNextLink href="/" className="text-xl font-semibold tracking-tight">
@@ -41,27 +41,27 @@ async function Header() {
           </PrismicNextLink>
         </div>
 
-        {/* Colonnes de menu à droite (3 dernières colonnes) */}
-        <div className="col-span-1 flex items-center justify-center">
+        {/* Les 5 colonnes intermédiaires (viennent après le nom et avant les éléments du menu) */}
+        <div className="col-span-5"></div>
+
+        {/* Colonnes de menu (3 dernières colonnes) */}
+        <div className="col-span-1 flex items-center justify-end">
           <PrismicNextLink field={navigation.data?.links[0]?.link}>
             <PrismicText field={navigation.data?.links[0]?.label} />
           </PrismicNextLink>
         </div>
 
-        <div className="col-span-1 flex items-center justify-center">
+        <div className="col-span-1 flex items-center justify-end">
           <PrismicNextLink field={navigation.data?.links[1]?.link}>
             <PrismicText field={navigation.data?.links[1]?.label} />
           </PrismicNextLink>
         </div>
 
-        <div className="col-span-1 flex items-center justify-center">
+        <div className="col-span-1 flex items-center justify-end">
           <PrismicNextLink field={navigation.data?.links[2]?.link}>
             <PrismicText field={navigation.data?.links[2]?.label} />
           </PrismicNextLink>
         </div>
-
-        {/* Les autres colonnes intermédiaires (les espaces vides) */}
-        <div className="col-span-5"></div>
       </div>
     </Bounded>
   );
