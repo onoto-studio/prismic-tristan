@@ -8,10 +8,9 @@ import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
 
 const satoshi = localFont({
-  src: './Satoshi-Variable.ttf', // ← pas besoin de "fonts/", il est au même niveau
+  src: './Satoshi-Variable.ttf',
   display: 'swap',
 });
-
 
 export default async function RootLayout({
   children,
@@ -34,27 +33,35 @@ async function Header() {
 
   return (
     <Bounded as="header" yPadding="sm">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
-        <PrismicNextLink
-          href="/"
-          className="text-xl font-semibold tracking-tight"
-        >
-          <PrismicText field={settings.data.siteTitle} />
-        </PrismicNextLink>
-        <nav>
-          <ul className="flex flex-wrap gap-6 md:gap-10">
-            {navigation.data?.links.map((item) => (
-              <li
-                key={asText(item.label)}
-                className="font-semibold tracking-tight text-slate-800"
-              >
-                <PrismicNextLink field={item.link}>
-                  <PrismicText field={item.label} />
-                </PrismicNextLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
+      <div className="grid grid-cols-9 gap-4 px-4 py-4">
+        {/* Première colonne : le nom */}
+        <div className="col-span-1 flex items-center justify-start">
+          <PrismicNextLink href="/" className="text-xl font-semibold tracking-tight">
+            <PrismicText field={settings.data.siteTitle} />
+          </PrismicNextLink>
+        </div>
+
+        {/* Colonnes de menu à droite (3 dernières colonnes) */}
+        <div className="col-span-1 flex items-center justify-center">
+          <PrismicNextLink field={navigation.data?.links[0]?.link}>
+            <PrismicText field={navigation.data?.links[0]?.label} />
+          </PrismicNextLink>
+        </div>
+
+        <div className="col-span-1 flex items-center justify-center">
+          <PrismicNextLink field={navigation.data?.links[1]?.link}>
+            <PrismicText field={navigation.data?.links[1]?.label} />
+          </PrismicNextLink>
+        </div>
+
+        <div className="col-span-1 flex items-center justify-center">
+          <PrismicNextLink field={navigation.data?.links[2]?.link}>
+            <PrismicText field={navigation.data?.links[2]?.label} />
+          </PrismicNextLink>
+        </div>
+
+        {/* Les autres colonnes intermédiaires (les espaces vides) */}
+        <div className="col-span-5"></div>
       </div>
     </Bounded>
   );
