@@ -7,11 +7,11 @@ import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
 import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
 
-// Charger la police Satoshi
 const satoshi = localFont({
-  src: './fonts/Satoshi-Variable.ttf', // adapte ce chemin si nécessaire
+  src: './Satoshi-Variable.ttf', // ← pas besoin de "fonts/", il est au même niveau
   display: 'swap',
 });
+
 
 export default async function RootLayout({
   children,
