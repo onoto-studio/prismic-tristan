@@ -1,5 +1,6 @@
 import "./globals.css";
-import localFont from 'next/font/local';
+
+import { Inter } from "next/font/google";
 import { asText } from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
 import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
@@ -7,17 +8,37 @@ import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
 import { createClient, repositoryName } from "@/prismicio";
 import { Bounded } from "@/components/Bounded";
 
-// Import de la font Satoshi (assure-toi que le chemin est correct)
-const satoshi = localFont({
-  src: './fonts/Satoshi-Variable.ttf', // <-- adapte si besoin
+import localFont from 'next/font/local'
+ 
+// Font files can be colocated inside of app
+const myFont = localFont({
+  src: './Satoshi-Variable.ttf',
   display: 'swap',
+})
+ 
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" className={myFont.className}>
+      <body>{children}</body>
+    </html>
+  )
+}
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={satoshi.className}>
+    <html lang="en" className={inter.variable}>
       <body className="overflow-x-hidden antialiased">
         <Header />
         {children}
