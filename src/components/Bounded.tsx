@@ -11,7 +11,6 @@ type BoundedProps = {
 
 export function Bounded({
   as: Comp = "div",
-  yPadding = "base",
   collapsible = true,
   className,
   children,
@@ -20,14 +19,11 @@ export function Bounded({
     <Comp
       data-collapsible={collapsible}
       className={clsx(
-        "px-0", // Pas de padding horizontal
-        yPadding === "sm" && "py-4 md:py-6", // Marge verticale
-        yPadding === "base" && "py-6 md:py-8", // Marge verticale
-        yPadding === "lg" && "py-8 md:py-12", // Marge verticale
+        "p-5", // Padding de 20px tout autour (haut, bas, gauche, droite)
         className,
       )}
     >
-      <div className="mx-0 w-full">{children}</div> {/* Réduit la largeur max */}
+      <div className="mx-auto w-full">{children}</div>
     </Comp>
   );
 }
