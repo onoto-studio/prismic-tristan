@@ -33,38 +33,38 @@ async function Header() {
 
   return (
     <Bounded as="header" yPadding="sm">
-      <div className="grid grid-cols-9 gap-4 px-4 py-4">
-        {/* Colonne 1 : Titre du site à gauche */}
-        <div className="col-span-1 flex items-center justify-start">
-          <PrismicNextLink href="/" className="text-xl font-semibold tracking-tight">
-            <PrismicText field={settings.data.siteTitle} />
-          </PrismicNextLink>
-        </div>
+      <div className="grid grid-cols-4 md:grid-cols-9 gap-4 px-4 py-4">
+  {/* Colonne 1 : Titre du site à gauche sur desktop, reste à gauche sur mobile */}
+  <div className="col-span-1 flex items-center justify-start">
+    <PrismicNextLink href="/" className="text-xl font-semibold tracking-tight">
+      <PrismicText field={settings.data.siteTitle} />
+    </PrismicNextLink>
+  </div>
 
-        {/* Colonnes 2 à 6 : vides */}
-        <div className="col-span-5" />
+  {/* Colonnes 2 à 3 sur mobile : vide, sur desktop col-span-5 */}
+  <div className="hidden md:block md:col-span-5" />
 
-        {/* Colonne 7 */}
-        <div className="col-span-1 flex items-center justify-end">
-          <PrismicNextLink field={navigation.data?.links[0]?.link}>
-            <PrismicText field={navigation.data?.links[0]?.label} />
-          </PrismicNextLink>
-        </div>
+  {/* Colonne 2 sur mobile / 7 sur desktop */}
+  <div className="col-span-1 flex items-center justify-end">
+    <PrismicNextLink field={navigation.data?.links[0]?.link}>
+      <PrismicText field={navigation.data?.links[0]?.label} />
+    </PrismicNextLink>
+  </div>
 
-        {/* Colonne 8 */}
-        <div className="col-span-1 flex items-center justify-end">
-          <PrismicNextLink field={navigation.data?.links[1]?.link}>
-            <PrismicText field={navigation.data?.links[1]?.label} />
-          </PrismicNextLink>
-        </div>
+  {/* Colonne 3 sur mobile / 8 sur desktop */}
+  <div className="col-span-1 flex items-center justify-end">
+    <PrismicNextLink field={navigation.data?.links[1]?.link}>
+      <PrismicText field={navigation.data?.links[1]?.label} />
+    </PrismicNextLink>
+  </div>
 
-        {/* Colonne 9 */}
-        <div className="col-span-1 flex items-center justify-end">
-          <PrismicNextLink field={navigation.data?.links[2]?.link}>
-            <PrismicText field={navigation.data?.links[2]?.label} />
-          </PrismicNextLink>
-        </div>
-      </div>
+  {/* Colonne 4 sur mobile / 9 sur desktop */}
+  <div className="col-span-1 flex items-center justify-end">
+    <PrismicNextLink field={navigation.data?.links[2]?.link}>
+      <PrismicText field={navigation.data?.links[2]?.label} />
+    </PrismicNextLink>
+  </div>
+</div>
     </Bounded>
   );
 }
