@@ -21,23 +21,22 @@ const Hero: FC<HeroProps> = ({ slice }) => {
   const backgroundImage = slice.primary.backgroundImage;
 
   return (
-    <section className="relative bg-slate-900 text-white">
-      {isFilled.image(backgroundImage) && (
-        <PrismicNextImage
-          field={backgroundImage}
-          alt=""
-          fill={true}
-          className="pointer-events-none select-none object-cover opacity-40"
-        />
-      )}
+    <section className="bg-slate-900 text-white">
+      <Bounded yPadding="lg">
+        <div className="grid grid-cols-9 gap-4 items-center">
+          {/* Image dans les 6 premières colonnes */}
+          {isFilled.image(backgroundImage) && (
+            <div className="col-span-6">
+              <PrismicNextImage
+                field={backgroundImage}
+                alt=""
+                className="w-full h-auto object-cover rounded-lg"
+              />
+            </div>
+          )}
 
-      <Bounded yPadding="lg" className="relative">
-        <div className="grid grid-cols-9 gap-4">
-          {/* Colspan 6 pour la partie vide à gauche (laisse l'image visible en fond) */}
-          <div className="col-span-6" />
-
-          {/* Colspan 3 pour le contenu textuel à droite */}
-          <div className="col-span-3 flex flex-col items-start justify-center space-y-6 text-left">
+          {/* Texte dans les 3 dernières colonnes */}
+          <div className="col-span-3 flex flex-col justify-center space-y-6">
             <div>
               <PrismicRichText
                 field={slice.primary.text}
@@ -58,6 +57,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
     </section>
   );
 };
+
 
 
 export default Hero;
