@@ -23,10 +23,10 @@ const Hero: FC<HeroProps> = ({ slice }) => {
   return (
     <section className="bg-white min-h-[85vh] text-slate-900">
       <Bounded yPadding="lg">
-        <div className="grid grid-cols-9 gap-4 items-center  pr-6">
+        <div className="grid grid-cols-9 gap-4 items-center">
           {/* Image dans les 6 premières colonnes */}
           {isFilled.image(backgroundImage) && (
-            <div className="col-span-6">
+            <div className="col-span-6  pr-6">
               <PrismicNextImage
                 field={backgroundImage}
                 alt=""
