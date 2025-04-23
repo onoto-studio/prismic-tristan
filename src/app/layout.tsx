@@ -33,7 +33,7 @@ async function Header() {
 
   return (
     <Bounded as="header" yPadding="sm">
-      {/* Grid avec 9 colonnes sur desktop et 4 sur mobile */}
+      {/* Grid à 9 colonnes sur desktop et 4 sur mobile */}
       <div className="grid grid-cols-9 gap-4 px-4 py-4 sm:grid-cols-4">
         {/* Première colonne : le nom */}
         <div className="col-span-1 flex items-center justify-start">
@@ -42,10 +42,10 @@ async function Header() {
           </PrismicNextLink>
         </div>
 
-        {/* Colonne vide entre le nom et le menu */}
+        {/* Espacement entre le nom et les éléments du menu */}
         <div className="col-span-5"></div>
 
-        {/* Colonnes du menu, sur desktop dans les 3 dernières colonnes */}
+        {/* Colonnes pour les éléments du menu */}
         <div className="col-span-1 flex items-center justify-end">
           <PrismicNextLink field={navigation.data?.links[0]?.link}>
             <PrismicText field={navigation.data?.links[0]?.label} />
