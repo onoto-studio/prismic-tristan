@@ -45,14 +45,14 @@ async function Header() {
   <div className="hidden md:block md:col-span-5" />
 
   {/* Colonne 2 sur mobile / 7 sur desktop */}
-  <div className="col-span-1 flex items-center justify-end">
+  <div className="col-span-1 flex items-center justify-start">
     <PrismicNextLink field={navigation.data?.links[0]?.link}>
       <PrismicText field={navigation.data?.links[0]?.label} />
     </PrismicNextLink>
   </div>
 
   {/* Colonne 3 sur mobile / 8 sur desktop */}
-  <div className="col-span-1 flex items-center justify-end">
+  <div className="col-span-1 flex items-center justify-center">
     <PrismicNextLink field={navigation.data?.links[1]?.link}>
       <PrismicText field={navigation.data?.links[1]?.label} />
     </PrismicNextLink>
