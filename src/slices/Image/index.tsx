@@ -17,8 +17,8 @@ const Image: FC<ImageProps> = ({ slice, index }) => {
       className={clsx("bg-white h-screen", index === 0 && "pt-0 md:pt-0")}
     >
       {isFilled.image(image) && (
-        <div className="bg-gray-100">
-          <PrismicNextImage field={image} sizes="100vw" className="w-full object-cover" />
+        <div>
+          <PrismicNextImage field={image} className="w-full h-screen object-cover" />
         </div>
       )}
     </Bounded>
