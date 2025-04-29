@@ -17,11 +17,11 @@ const Image: FC<ImageProps> = ({ slice, index }) => {
   className={clsx("bg-white h-screen flex items-center justify-center", index === 0 && "pt-0 md:pt-0")}
 >
   {isFilled.image(image) && (
-    <div className="aspect-[3/2] w-full max-w-5xl bg-gray-100">
+    <div className="aspect-[3/2] w-full bg-gray-100 items-center justify-center">
       <PrismicNextImage
         field={image}
-        sizes="75vw"
-        className="w-full h-full object-cover"
+        sizes="100vw"
+        className="w-full h-full object-fit"
       />
     </div>
   )}
