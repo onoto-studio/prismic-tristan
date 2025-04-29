@@ -18,7 +18,7 @@ const Image: FC<ImageProps> = ({ slice, index }) => {
     >
       {isFilled.image(image) && (
         <div className="bg-gray-100">
-          <PrismicNextImage field={image} sizes="100vw" className="w-full" />
+          <PrismicNextImage field={image} sizes="75vw" className="w-full" />
         </div>
       )}
     </Bounded>
