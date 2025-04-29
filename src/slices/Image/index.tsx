@@ -13,19 +13,15 @@ const Image: FC<ImageProps> = ({ slice, index }) => {
 
   return (
     <Bounded
-  as="section"
-  className={clsx("bg-white h-screen flex items-center justify-center", index === 0 && "pt-0 md:pt-0")}
->
-  {isFilled.image(image) && (
-    <div className="aspect-[3/2] bg-gray-100 items-center justify-center">
-      <PrismicNextImage
-        field={image}
-        sizes="50vw"
-        className="w-full h-full object-contain"
-      />
-    </div>
-  )}
-</Bounded>
+      as="section"
+      className={clsx("bg-white h-screen", index === 0 && "pt-0 md:pt-0")}
+    >
+      {isFilled.image(image) && (
+        <div className="bg-gray-100">
+          <PrismicNextImage field={image} sizes="75vw" className="w-full object-cover" />
+        </div>
+      )}
+    </Bounded>
   );
 };
 
