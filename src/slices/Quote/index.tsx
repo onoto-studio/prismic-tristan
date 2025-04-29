@@ -9,7 +9,7 @@ type QuoteProps = SliceComponentProps<Content.QuoteSlice>;
 
 const Quote: FC<QuoteProps> = ({ slice }) => {
   return (
-    <Bounded as="section" className="bg-white">
+    <Bounded as="section" className="bg-white h-screen">
       {isFilled.richText(slice.primary.quote) && (
         <figure className="grid gap-6">
           <blockquote>
